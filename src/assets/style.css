@@ -1,0 +1,274 @@
+/* :root {
+    --colorWhite: #ffffff;
+    --colorBlack: #000000;
+    --colorRed: red;
+    --fontSize-sm: 16px;
+    --fontFamily: 'Arial, Helvetica, sans-serif';
+    --fontTitle: 'Arial';
+    --fontBody: 'Helvetica';
+} */
+
+/* SignIn Component */
+
+/* h1 {
+    color: var(--colorRed);
+} */
+
+/* SignUp Component */
+
+/* Home view */
+
+/* Account View */
+*{margin:0; padding:0; box-sizing: border-box;}
+
+body {
+    background-image: linear-gradient(rgb(0, 0, 0), rgb(41, 54, 104));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: rgb(62, 158, 158);
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+}
+
+nav {
+    position: sticky;
+    top: 20px;
+    width: 120px;
+    height: 450px;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #CDDDDD;
+    padding-bottom: 20px;
+    margin: 20px;
+    border-radius: 100px;
+    z-index: 99;
+}
+
+.logo-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.button-tag{
+    display: none;
+    position: absolute;
+    left: 106px;
+    background-color: #CDDDDD;
+    border-radius: 50px;
+    padding: 7px;
+    white-space: nowrap;
+}
+.button-container:hover .button-tag{
+    display: flex;
+  }
+.button-container a {
+    width: 90px;
+    height: 90px;
+    background-color: #A599B5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.logo-container a {
+    width: 90px;
+    height: 90px;
+    background-color: #54d868;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    animation-name: backgroundColorPalette;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: linear; 
+	/* linear is enabled default, it’s not necessary to add it make it work but it can make your code more expressive */
+}
+
+@keyframes backgroundColorPalette {
+	0% {
+		background: #ee6055;
+	}
+	25% {
+		background: #60d394;
+	}
+	50% {
+		background: #aaf683;
+	}
+	75% {
+		background: #ffd97d;
+	}
+	100% {
+		background: #ff9b85;
+	}
+}
+
+.button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-wrapper, .logo {
+    width: 100%;
+}
+
+.logo-container img {
+    width: 100%;
+}
+.button-container img{
+    width: 40%;
+}
+
+a {
+    cursor: pointer;
+}
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.inactive-title-task-input {
+    resize: none;
+    pointer-events:none;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(62, 158, 158);
+    text-align: center;
+}
+
+.active-description-task-input {
+    resize: none;
+    pointer-events:all;
+    border: none;
+    background:rgba(255, 255, 255, 0.205);
+    font-size: 0.8rem;
+    color: #b09090;
+    text-align: center;
+    border-radius: 9px;
+}
+.active-title-task-input {
+    resize: none;
+    pointer-events:all;
+    border: none;
+    background: rgba(255, 255, 255, 0.205);
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(62, 158, 158);
+    text-align: center;
+    border-radius: 9px;
+}
+
+.inactive-description-task-input {
+    resize: none;
+    pointer-events:none;
+    border: none;
+    background: transparent;
+    font-size: 0.8rem;
+    color: #b09090;
+    text-align: center;
+}
+
+.task-container {
+    /* filter: grayscale(65%); */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 18rem;
+    height: 14rem;
+    border-radius: 3rem;
+    border: solid 2px #1d1f1d;
+    margin: 1rem;
+    background-image: linear-gradient(rgb(41, 54, 104), rgb(35, 35, 35));
+}
+.done-task {
+    filter: grayscale(65%);
+    opacity: 0.2;
+}
+.new-task-box {
+    background-image: linear-gradient(rgb(41, 54, 104), rgb(0, 0, 0));
+    border: none;
+    border-radius: 40px;
+    width: 360px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-container input, .task-container textarea{
+    width: 100%;
+}
+
+.new-task {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.205);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+}
+
+.buttons-task-item {
+    display: flex;
+    justify-content: center;
+}
+.task-btn {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+.done {
+    background-color: #54d868;
+}
+.edit {
+    background-color: hsl(65, 87%, 64%);
+}
+.delete{
+    background-color: #d85454;
+}
+.task-btn img {
+    width: 70%;
+}
