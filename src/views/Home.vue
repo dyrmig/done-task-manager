@@ -41,6 +41,7 @@ const hideNewTask = () => {
 const displayNewTask = () => {
   showNewTask.value = true;
 }
+
 if(props.action==='add'){
   displayNewTask();
 }

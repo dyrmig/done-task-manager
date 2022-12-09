@@ -1,17 +1,12 @@
 <template>
-  <div class="container">
-
-    <div class="header">
-      <div class="header-description">
-        <h3 class="header-title">Register to ToDo App</h3>
-        <p class="header-subtitle">Start organizing your tasks!</p>
-      </div>
-    </div>
-
-    <form @submit.prevent="signUp" class="form-sign-in">
-      <div class="form">
-        <div class="form-input">
-          <label class="input-field-label">Name</label>
+  <div class="login-container">
+      <div class="logo-container-login"><a><img src="../assets/images/logo-done.png" alt="Done Task Logo"></a></div>
+      <h2>Sing Up new account:</h2>
+      <div class="singup-inputs-container">
+        <form @submit.prevent="signUp" class="form-sign-in">
+        
+        
+          <label for="userName" class="input-field-label">Name</label>
           <input
             type="text"
             class="input-field"
@@ -20,10 +15,8 @@
             v-model="userName"
             required
           />
-        </div>
 
-        <div class="form-input">
-          <label class="input-field-label">Avatar image url</label>
+          <label for="userAvatarUrl" class="input-field-label">Avatar image URL</label>
           <input
             type="text"
             class="input-field"
@@ -32,10 +25,8 @@
             v-model="userAvatarUrl"
             required
           />
-        </div>
 
-        <div class="form-input">
-          <label class="input-field-label">E-mail</label>
+          <label for="email" class="input-field-label">E-mail</label>
           <input
             type="email"
             class="input-field"
@@ -44,9 +35,8 @@
             v-model="email"
             required
           />
-        </div>
-        <div class="form-input">
-          <label class="input-field-label">Password</label>
+
+          <label for="password" class="input-field-label">Password</label>
           <input
             type="password"
             class="input-field"
@@ -55,9 +45,8 @@
             v-model="password"
             required
           />
-        </div>
-        <div class="form-input">
-          <label class="input-field-label">Confirm password</label>
+
+          <label for="confirmPassword" class="input-field-label">Confirm password</label>
           <input
             type="password"
             class="input-field"
@@ -66,20 +55,14 @@
             v-model="confirmPassword"
             required
           />
-        </div>
-        <button class="button" type="submit">Sign Up</button>
-        <p>
-          Have an account?
-          <PersonalRouter
-            :route="route"
-            :buttonText="buttonText"
-            class="sign-up-link"
-          />
-        </p>
-      </div>
-    </form>
 
-    <div v-show="errorMsg">{{errorMsg}}</div>
+
+          <div v-show="errorMsg">{{errorMsg}}</div>
+          <button class="login-btn" type="submit">Sign Up</button>
+        </form>
+        
+        <p class="signup-text">Have an account? <PersonalRouter :route="route" :buttonText="buttonText" class="sign-up-link" /></p>
+      </div>
   </div>
 </template>
 

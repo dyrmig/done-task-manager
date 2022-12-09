@@ -1,16 +1,19 @@
 <!-- COMPONENTE BOILERPLATE -->
  
-  <template>
-
-  <div class="container">
-    <h3 class="header-title">Log In to ToDo App</h3>
-    <input type="text" v-model="userData.email" />
-    <input type="password" v-model="userData.password" />
-    <button @click="signIn">Sign In</button>
-    <p class="header-subtitle">Estamos en la ruta de login. Aquí deberíais crear un form con la lógica correspondiente para que este permita al usuario loguearse con su email y su contraseña. Miraros la lógica de SignUp si necesitáis inspiración :)</p>
-    <p>Dont have an account? <PersonalRouter :route="route" :buttonText="buttonText" class="sign-up-link"/></p>
+<template>
+    
+    <div class="login-container">
+      <div class="logo-container-login"><a><img src="../assets/images/logo-done.png" alt="Done Task Logo"></a></div>
+      <h2>Task Manager</h2>
+      <div class="login-inputs-container">
+        <label for="mail">Email:</label>
+        <input id="mail" type="text" v-model="userData.email" />
+        <label for="password">Password:</label>
+        <input id="password" type="password" v-model="userData.password" />
+        <button class="login-btn" @click="signIn">Login</button>
+        <p class="signup-text">Dont have an account? <PersonalRouter :route="route" :buttonText="buttonText" class="sign-up-link"/></p>
+      </div>
   </div>
-
 </template>
 
 <script setup>
