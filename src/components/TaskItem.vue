@@ -8,10 +8,10 @@
 
     
     <div class="buttons-task-item">
-        <div @click="$emit('toggleCompleted', task.id, task.is_complete)" class="task-btn done"><img src="../assets/images/cheque.png" alt="Done Task Logo"></div>
+        <div v-if="!editMode" @click="$emit('toggleCompleted', task.id, task.is_complete)" class="task-btn done"><img src="../assets/images/cheque.png" alt="Done Task Logo"></div>
         <div v-if="!editMode" @click="editTask" class="task-btn edit"><img src="../assets/images/rebautizar.png" alt="Done Task Logo"></div>
-        <div v-else @click="saveTask" class="task-btn done"><img src="../assets/images/disquete.png" alt="Done Task Logo"></div>
-        <div @click="deleteTask" class="task-btn delete"><img src="../assets/images/eliminar.png" alt="Done Task Logo"></div>
+        <div v-else @click="saveTask" class="task-btn done"><img src="../assets/images/guardar.png" alt="Done Task Logo"></div>
+        <div v-if="!editMode" @click="deleteTask" class="task-btn delete"><img src="../assets/images/eliminar.png" alt="Done Task Logo"></div>
 
         <!-- <p @click="$emit('toggleCompleted', task.id, task.is_complete)">Completed:{{task.is_complete}}</p>
         <button v-if="!editMode" @click="editTask">Edit</button>

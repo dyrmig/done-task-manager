@@ -101,6 +101,7 @@ nav {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    border: solid 1px gray;
     margin-top: 10px;
     margin-bottom: 10px;
 
@@ -109,7 +110,6 @@ nav {
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
 	animation-timing-function: linear; 
-	/* linear is enabled default, it’s not necessary to add it make it work but it can make your code more expressive */
 }
 
 @keyframes backgroundColorPalette {
@@ -233,7 +233,7 @@ a {
 }
 
 .new-task {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     display: flex;

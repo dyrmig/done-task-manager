@@ -1,19 +1,19 @@
 <template>
     <div class="new-task">
-        <div class="new-task-box">
-            <h1>Add a new Task</h1>
+        <div class="task-container">
             <div v-if="showErrorMessage">
                 <p class="error-text">{{ errorMessage }}</p>
             </div>
-            <div>
-                <div class="input-field">
-                    <input type="text" placeholder="Add a Task Title - Listen to Kendrick Lamar" v-model="name">
-                </div>
-                <div class="input-field">
-                    <input type="text" placeholder="Add a Task Description - Look up Kendrick Lamar's FEAR album on spotify and listen to the whole album." v-model="description">
-                </div>
-                <button @click="addTask" class="button">Add</button>
-                <button @click="$emit('cancelNewTask')" class="button">Cancel</button>
+            <textarea class="active-title-task-input" type="text" v-model="name" placeholder="Add a Task Title"></textarea>
+        
+            <textarea class="active-description-task-input" type="text" v-model="description" cols="30" rows="5" placeholder="Add a Task Description"></textarea>
+
+
+            
+            <div class="buttons-task-item">
+                <div @click="addTask" class="task-btn done"><img src="../assets/images/cheque.png" alt="Done Task Logo"></div>
+                <div @click="$emit('cancelNewTask')" class="task-btn delete"><img src="../assets/images/cerca.png" alt="Done Task Logo"></div>
+
             </div>
         </div>
     </div>

@@ -23,6 +23,7 @@ const taskStore = useTaskStore();
 
 // Variable para guardar las tareas de supabase
 const tasks = ref([]);
+const completedTasks = ref([]);
 // Variable para guardar el user de supabase
 const user = ref([]);
 //variable para mostrar o ocultar newtask
@@ -46,11 +47,17 @@ if(props.action==='add'){
 
 // Creamos una función que conecte a la store para conseguir las tareas de supabase
 const getTasks = async() => {
-  tasks.value = await taskStore.fetchTasks();
+  tasks.value = await taskStore.fetchTasks(false);
+  completedTasks.value = await taskStore.fetchTasks(true);
+  tasks.value = tasks.value.concat(completedTasks.value);
 };
 
 getTasks();
 
+// const activeTasks = computed(()=>{
+//   return tasks.value.filter(task => task.is_complete === true);
+// });
+// console.log(activeTasks.value);
 //función para obtener la data del user actual
 const getCurrentUser = async() => {
   user.value = await useUserStore().fetchUser();

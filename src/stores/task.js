@@ -7,11 +7,11 @@ export const useTaskStore = defineStore("tasks", {
     tasks: null,
   }),
   actions: {
-    async fetchTasks() {
+    async fetchTasks(completed) {
       const { data: tasks } = await supabase
         .from("tasks")
         .select("*")
-        // .eq('is_complete', 'true')
+        .eq('is_complete', completed)
         .order("id", { ascending: false });
       this.tasks = tasks;
       return this.tasks;
