@@ -1,5 +1,5 @@
 <template>
-    <div class="new-task">
+    <!-- <div class="new-task"> -->
         <div class="task-container">
             <div v-if="showErrorMessage">
                 <p class="error-text">{{ errorMessage }}</p>
@@ -11,12 +11,12 @@
 
             
             <div class="buttons-task-item">
-                <div @click="addTask" class="task-btn done"><img src="../assets/images/cheque.png" alt="Done Task Logo"></div>
+                <div @click="addTask" class="task-btn done"><img src="../assets/images/guardar.png" alt="Done Task Logo"></div>
                 <div @click="$emit('cancelNewTask')" class="task-btn delete"><img src="../assets/images/cerca.png" alt="Done Task Logo"></div>
 
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 </template>
 
 <script setup>

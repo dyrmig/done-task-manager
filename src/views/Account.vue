@@ -2,10 +2,27 @@
   <div class="wrapper">
     <Nav />
     <div class="content">
+      
       <div class="profile">
-        <h1>{{username}}</h1>
-        <h1>{{email}}</h1>
+        <h1>Your Profile</h1>
         <img class="profile-pic" :src="avatar_url ? avatar_url : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'" alt="Profile picture">
+        <br>
+        <!-- <input v-if="editMode" type="text" v-model="avatar_url"> -->
+        <textarea class="active-title-task-input" v-if="editMode" type="text" v-model="avatar_url"></textarea>
+
+        <br>
+        <textarea class="inactive-title-task-input" v-if="!editMode" type="text" v-model="username"></textarea>
+            <textarea class="active-title-task-input" v-else type="text" v-model="username"></textarea>
+        <br>
+        <!-- <h2  v-if="!editMode" >{{username}}</h2>
+        <input v-if="editMode" type="text" v-model="username"> -->
+        <h2>{{email}}</h2>
+        
+        <div class="buttons-task-item">
+            <div v-if="!editMode" @click="editProfile" class="task-btn edit"><img src="../assets/images/rebautizar.png" alt="Done Task Logo"></div>
+            <div v-if="editMode" @click="saveProfile" class="task-btn done"><img src="../assets/images/guardar.png" alt="Done Task Logo"></div>
+            <div v-if="editMode" @click="cancelEditProfile" class="task-btn delete"><img src="../assets/images/cerca.png" alt="Done Task Logo"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -20,17 +37,31 @@
   const userStore = useUserStore();
 
   const loading = ref(false);
+  const userId = ref(null);
   const username = ref(null);
   const website = ref(null);
   const avatar_url = ref(null);
   const email = ref(null);
+  const editMode = ref(false);
 
+  const cancelEditProfile = () => {
+    editMode.value = false;
+    getProfile();
+  }
+  const editProfile = () => {
+    editMode.value = true;
+  }
+  async function saveProfile() {
+    await userStore.updateProfile(userId.value, username.value, avatar_url.value);
+    cancelEditProfile();
+  }
   onMounted(() => {
     getProfile();
   });
 
   async function getProfile() {
     await userStore.fetchUser();
+    userId.value = userStore.profile.user_id;
     username.value = userStore.profile.user_name;
     avatar_url.value = userStore.profile.avatar_url;
     email.value = userStore.profile.email;
@@ -48,10 +79,3 @@
     }
   }
 </script>
-
-<style>
-.profile-pic {
-  width: 100px;
-  border-radius: 50%;
-}
-</style>

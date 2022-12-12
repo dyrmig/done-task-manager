@@ -49,6 +49,12 @@ Home
 - CSS styles for login and setup views
 - New task action in navbar from any view
 
+### December 12:
+
+- Responsive CSS styles
+- Animation for newtaks component
+- Edit profile logic and style
+
 Requisitos para el final Project
 Para este proyecto vamos a desarrollar una aplicación ToDo (para hacer un seguimiento de tareas que tenemos pendientes) que deberá cumplir como mínimo los siguientes puntos:
 

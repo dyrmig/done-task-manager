@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper">
     <Nav @showNewTask="displayNewTask" />
-    <div class="content"> 
+    <div class="content">
+      <transition>
       <NewTask v-if="showNewTask" @reloadTasks="getTasks" @cancelNewTask="hideNewTask" />
-
+      </transition>
       <TaskItem v-for="task in tasks" :key="task.id" :task="task" @reloadTasks="getTasks" @updateTask="saveTask" @toggleCompleted="toggleIsCompleted" />
-
     </div>
   </div>
 </template>

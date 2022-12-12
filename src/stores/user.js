@@ -71,6 +71,11 @@ export const useUserStore = defineStore("user", {
       }
     },
 
+    async updateProfile(userId, userName, avatarUrl){
+      const { data, error } = await supabase.from("profiles").update({ user_name: userName, avatar_url: avatarUrl }).match({user_id: userId});
+      if (error) console.log(error);
+    },
+
     async signOut(){
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
