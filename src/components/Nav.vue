@@ -31,14 +31,14 @@
 
     <div class="mobile-btns-container">
       <div class="button-wrapper">
-      <div class="button-container"><router-link to="/account"><img src="../assets/images/usuario.png" alt="Your profile"></router-link>
-      </div>
-      </div>
-      <div class="button-wrapper">
         <div class="button-container">
           <a v-if="currentRoute === '/' || currentRoute === '/add'" @click="$emit('showNewTask')"><img src="../assets/images/mas.png" alt="Add New Task"></a>
           <router-link v-else to="/add"><img src="../assets/images/mas.png" alt="Add New Task"></router-link>
         </div>
+      </div>
+      <div class="button-wrapper">
+      <div class="button-container"><router-link to="/account"><img src="../assets/images/usuario.png" alt="Your profile"></router-link>
+      </div>
       </div>
       <div class="button-wrapper">
         <div class="button-container"><a @click="signOut"><img src="../assets/images/cerrar-sesion.png" alt="Log Out"></a>

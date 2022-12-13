@@ -16,7 +16,7 @@
             required
           />
 
-          <label for="userAvatarUrl" class="input-field-label">Avatar image URL</label>
+          <!-- <label for="userAvatarUrl" class="input-field-label">Avatar image URL</label>
           <input
             type="text"
             class="input-field"
@@ -24,7 +24,7 @@
             id="userAvatarUrl"
             v-model="userAvatarUrl"
             required
-          />
+          /> -->
 
           <label for="email" class="input-field-label">E-mail</label>
           <input
@@ -84,7 +84,7 @@ const password = ref("");
 const confirmPassword = ref("");
 //nuevos campos
 const userName = ref("");
-const userAvatarUrl = ref("");
+const userAvatarUrl = ref("default.png");
 
 // Error Message
 const errorMsg = ref("");

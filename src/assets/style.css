@@ -477,11 +477,12 @@ a {
         border: none;
     }
 }
+
+/* Transition effect for vue components */
 .v-enter-active,
 .v-leave-active {
-  transition: opacity 1.5s ease;
+  transition: opacity 1s linear;
 }
-
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
