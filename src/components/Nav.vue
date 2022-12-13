@@ -1,11 +1,8 @@
 <template>
   <nav>
     <div class="logo">
-      <div class="logo-container"><router-link to="/"><img src="../assets/images/logo-done.png" alt="Done Task Logo"></router-link></div>
-    </div>
-    <div class="button-wrapper">
-      <div class="button-container"><router-link to="/account"><img src="../assets/images/usuario.png" alt="Your profile"></router-link>
-        <div class="button-tag">User Profile</div>
+      <div class="logo-container"><router-link to="/"><img src="../assets/images/logo-done.png" alt="Done Task Logo"></router-link>
+        <div class="button-tag">All Tasks</div>
       </div>
     </div>
     <div class="button-wrapper">
@@ -13,6 +10,11 @@
         <a v-if="currentRoute === '/' || currentRoute === '/add'" @click="$emit('showNewTask')"><img src="../assets/images/mas.png" alt="Add New Task"></a>
         <router-link v-else to="/add"><img src="../assets/images/mas.png" alt="Add New Task"></router-link>
         <div class="button-tag">New Task</div>
+      </div>
+    </div>
+    <div class="button-wrapper">
+      <div class="button-container"><router-link to="/account"><img src="../assets/images/usuario.png" alt="Your profile"></router-link>
+        <div class="button-tag">User Profile</div>
       </div>
     </div>
     <div class="button-wrapper">

@@ -5,18 +5,20 @@
       
       <div class="profile">
         <h1>Your Profile</h1>
-        <img class="profile-pic" :src="avatar_url ? avatar_url : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'" alt="Profile picture">
         <br>
-        <!-- <input v-if="editMode" type="text" v-model="avatar_url"> -->
-        <textarea class="active-title-task-input" v-if="editMode" type="text" v-model="avatar_url"></textarea>
+        <!-- <img class="profile-pic" :src="avatar_url ? avatar_url : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png'" alt="Profile picture"> -->
+        <form class="form-widget" @submit.prevent="saveProfile">
+          <Avatar v-model:path="avatar_url" @upload="saveProfile" size="10" />
+         </form>
+
+        <br>
+        <!-- <textarea class="active-title-task-input" v-if="editMode" type="text" v-model="avatar_url"></textarea> -->
 
         <br>
         <textarea class="inactive-title-task-input" v-if="!editMode" type="text" v-model="username"></textarea>
             <textarea class="active-title-task-input" v-else type="text" v-model="username"></textarea>
         <br>
-        <!-- <h2  v-if="!editMode" >{{username}}</h2>
-        <input v-if="editMode" type="text" v-model="username"> -->
-        <h2>{{email}}</h2>
+        <h3>{{email}}</h3>
         
         <div class="buttons-task-item">
             <div v-if="!editMode" @click="editProfile" class="task-btn edit"><img src="../assets/images/rebautizar.png" alt="Done Task Logo"></div>
@@ -33,6 +35,7 @@
   import { onMounted, ref, toRefs } from 'vue'
   import { useUserStore } from "../stores/user";
   import Nav from '../components/Nav.vue';
+  import Avatar from '../components/Avatar.vue';
 
   const userStore = useUserStore();
 
