@@ -4,20 +4,13 @@
             <textarea class="active-title-task-input" v-else type="text" v-model="taskTitle"></textarea>
         <textarea class="inactive-description-task-input" v-if="!editMode" type="text" v-model="taskDescription" cols="30" rows="5"></textarea>
             <textarea class="active-description-task-input" v-else type="text" v-model="taskDescription" cols="30" rows="5"></textarea>
-
-
-        
+            
         <div class="buttons-task-item">
             <div v-if="!editMode" @click="$emit('toggleCompleted', task.id, task.is_complete)" class="task-btn done"><img src="../assets/images/cheque.png" alt="Done Task Logo"></div>
             <div v-if="!editMode" @click="editTask" class="task-btn edit"><img src="../assets/images/rebautizar.png" alt="Done Task Logo"></div>
             <div v-if="editMode" @click="saveTask" class="task-btn done"><img src="../assets/images/guardar.png" alt="Done Task Logo"></div>
             <div v-if="editMode" @click="cancelEditTask" class="task-btn delete"><img src="../assets/images/cerca.png" alt="Done Task Logo"></div>
             <div v-if="!editMode" @click="deleteTask" class="task-btn delete"><img src="../assets/images/eliminar.png" alt="Done Task Logo"></div>
-
-            <!-- <p @click="$emit('toggleCompleted', task.id, task.is_complete)">Completed:{{task.is_complete}}</p>
-            <button v-if="!editMode" @click="editTask">Edit</button>
-            <button v-else @click="saveTask">Save</button>
-            <button @click="deleteTask">Delete</button> -->
         </div>
     </div>
 </template>

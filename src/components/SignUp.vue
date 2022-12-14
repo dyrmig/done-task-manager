@@ -5,7 +5,6 @@
       <div class="singup-inputs-container">
         <form @submit.prevent="signUp" class="form-sign-in">
         
-        
           <label for="userName" class="input-field-label">Name</label>
           <input
             type="text"
@@ -15,16 +14,6 @@
             v-model="userName"
             required
           />
-
-          <!-- <label for="userAvatarUrl" class="input-field-label">Avatar image URL</label>
-          <input
-            type="text"
-            class="input-field"
-            placeholder="https://image.com/image.jpg"
-            id="userAvatarUrl"
-            v-model="userAvatarUrl"
-            required
-          /> -->
 
           <label for="email" class="input-field-label">E-mail</label>
           <input
@@ -55,7 +44,6 @@
             v-model="confirmPassword"
             required
           />
-
 
           <div v-show="errorMsg">{{errorMsg}}</div>
           <button class="login-btn" type="submit">Sign Up</button>
