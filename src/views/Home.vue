@@ -48,12 +48,20 @@ if(props.action==='add'){
 
 // Creamos una función que conecte a la store para conseguir las tareas de supabase
 const getTasks = async() => {
+  //tareas completas y incompletas
   tasks.value = await taskStore.fetchTasks(false);
   completedTasks.value = await taskStore.fetchTasks(true);
+  //concatenamos las tareas no completadas con las completadas
   tasks.value = tasks.value.concat(completedTasks.value);
+
+  //si no hay tareas se muestra el componente de nueva tarea
+  if(tasks.value.length === 0) {
+  displayNewTask ();
+  }
 };
 
 getTasks();
+
 
 // const activeTasks = computed(()=>{
 //   return tasks.value.filter(task => task.is_complete === true);

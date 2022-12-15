@@ -40,6 +40,8 @@ const editTask = () => {
 }
 const cancelEditTask = () => {
     editMode.value = !editMode.value;
+    taskTitle.value = props.task.title;
+    taskDescription.value = props.task.description;
 }
 const saveTask = () => {
     emit('updateTask', props.task.id, taskTitle.value, taskDescription.value)

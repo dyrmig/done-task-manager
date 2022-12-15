@@ -289,6 +289,7 @@ nav {
     font-size: 0.7rem;
 }
 .login-inputs-container {
+    position: relative;
     display: flex;
     flex-shrink: 0;
     flex-direction: column;
@@ -319,6 +320,7 @@ nav {
     background-image: linear-gradient(var(--gradientDarkBlue), var(--gradientBlack));
 }
 .singup-inputs-container form {
+    position: relative;
     height: 80%;
     width: 110%;
     display: flex;
@@ -342,6 +344,19 @@ nav {
     backdrop-filter: blur(5px);
     z-index: 999;
     overflow-y: scroll;
+}
+.error-msg {
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: #ee6055;
+    color: white;
+    text-align: center;
+    width: 12rem;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 /* -------------------------------------PROFILE VIEW------------------------------------- */

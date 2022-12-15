@@ -75,7 +75,7 @@ const userName = ref("");
 const userAvatarUrl = ref("default.png");
 
 // Error Message
-const errorMsg = ref("");
+const errorMsg = ref(null);
 
 // Router to push user once SignedUp to Log In
 const redirect = useRouter();
@@ -91,6 +91,7 @@ const signUp = async () => {
     } catch (error) {
       // displays error message
       errorMsg.value = error.message;
+      
       // hides error message
       setTimeout(() => {
         errorMsg.value = null;
@@ -98,7 +99,10 @@ const signUp = async () => {
     }
     return;
   }
-  errorMsg.value = "error";
+  errorMsg.value = "Passwords don't match";
+  setTimeout(() => {
+        errorMsg.value = null;
+      }, 5000);
 };
 </script>
 

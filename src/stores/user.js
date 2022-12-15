@@ -34,7 +34,7 @@ export const useUserStore = defineStore("user", {
       if (error) throw error;
       if (user) {
         this.user = user;
-        console.log(`userid:${this.user.id} name:${username} avatar:${useravatar}`);
+        //console.log(`userid:${this.user.id} name:${username} avatar:${useravatar}`);
 
         const { data, error } = await supabase.from('profiles').insert([
           {
@@ -46,7 +46,7 @@ export const useUserStore = defineStore("user", {
         ]);
         
         //const { data, error } = await supabase.from("profiles").update({ full_name: username, avatar_url: useravatar }).match({id: this.user.id});
-        console.log(error);
+        //console.log(error);
       }
     },
 

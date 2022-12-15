@@ -6,6 +6,7 @@
       <div class="logo-container-login"><a><img src="../assets/images/logo-done.png" alt="Done Task Logo"></a></div>
       <h2>Task Manager</h2>
       <div class="login-inputs-container">
+        <div class="error-msg" v-if="errorMsg">Wrong password or email</div>
         <label for="mail">Email:</label>
         <input id="mail" type="text" v-model="userData.email" />
         <label for="password">Password:</label>
@@ -24,6 +25,7 @@ import { useUserStore } from "../stores/user";
 
 // const userID = ref('default');
 // const userPassword = ref('default');
+const errorMsg = ref(null);
 const userData = reactive({
     email: '',
     password: ''
@@ -37,13 +39,16 @@ const redirect = useRouter();
 
 // Arrow function to Signin user to supaBase
 const signIn = async () => {
+  try {
     // calls the user store and send the users info to backend to logIn
     await useUserStore().signIn(userData.email, userData.password);
     // redirects user to the homeView
     redirect.push({ path: "/" });
-  try {} catch (error) {
+
+  } catch (error) {
     // displays error message
     errorMsg.value = error.message;
+
       // hides error message
       setTimeout(() => {
         errorMsg.value = null;
