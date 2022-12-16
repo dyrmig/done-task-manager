@@ -234,6 +234,13 @@ nav {
 .buttons-task-item {
     display: flex;
     justify-content: center;
+    visibility: hidden;
+}
+.task-container:hover .buttons-task-item{
+    visibility: visible;
+}
+.visible {
+    visibility: visible;
 }
 .task-btn {
     width: 40px;

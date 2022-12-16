@@ -5,7 +5,7 @@
         <textarea class="inactive-description-task-input" v-if="!editMode" type="text" v-model="taskDescription" cols="30" rows="5"></textarea>
             <textarea class="active-description-task-input" v-else type="text" v-model="taskDescription" cols="30" rows="5"></textarea>
             
-        <div class="buttons-task-item">
+        <div class="buttons-task-item" :class="editMode ? 'visible' : ''">
             <div v-if="!editMode" @click="$emit('toggleCompleted', task.id, task.is_complete)" class="task-btn done"><img src="../assets/images/cheque.png" alt="Done Task Logo"></div>
             <div v-if="!editMode" @click="editTask" class="task-btn edit"><img src="../assets/images/rebautizar.png" alt="Done Task Logo"></div>
             <div v-if="editMode" @click="saveTask" class="task-btn done"><img src="../assets/images/guardar.png" alt="Done Task Logo"></div>

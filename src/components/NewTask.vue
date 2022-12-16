@@ -10,7 +10,7 @@
 
 
             
-            <div class="buttons-task-item">
+            <div class="buttons-task-item visible">
                 <div @click="addTask" class="task-btn done"><img src="../assets/images/guardar.png" alt="Done Task Logo"></div>
                 <div @click="$emit('cancelNewTask')" class="task-btn delete"><img src="../assets/images/cerca.png" alt="Done Task Logo"></div>
 

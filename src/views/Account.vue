@@ -20,7 +20,7 @@
         <br>
         <h3>{{email}}</h3>
         
-        <div class="buttons-task-item">
+        <div class="buttons-task-item visible">
             <div v-if="!editMode" @click="editProfile" class="task-btn edit"><img src="../assets/images/rebautizar.png" alt="Done Task Logo"></div>
             <div v-if="editMode" @click="saveProfile" class="task-btn done"><img src="../assets/images/guardar.png" alt="Done Task Logo"></div>
             <div v-if="editMode" @click="cancelEditProfile" class="task-btn delete"><img src="../assets/images/cerca.png" alt="Done Task Logo"></div>
